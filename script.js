@@ -415,7 +415,7 @@ balanceShop.textContent = "Баланс: " + balanceNumber;
 
 profileScreen.style.display = "none"
 if (name) {
-    startScreen.style.display = "flex";
+    startScreen.style.display = "none";
 }
 
 if (localStorage.getItem("theme") === "dark") {
