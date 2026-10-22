@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cyber Arena</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="startScreen">
+    <div id="startMenu">
+        <h1>Cyber Arena  </h1>
+        <hr>
+        
+
+        
+            
+        <div class="startN">
+        <p>Никнейм: </p>
+        <input id="nickname" type="text" spellcheck="false" 
+        placeholder="Придумайте никнейм"> (обязательно)
+        </div>
+
+        
+
+
+        <button id="newGameButton">Начать новую игру</button>
+
+    </div>
+    </div>
+
+    <div id="shopScreen">
+    <div id="shopMenu">
+        <h1>Магазин  </h1>
+        <hr>
+        <p id="balanceShop">Баланс: 0</p>
+        <hr>
+        <h2>Скины</h2>
+        <hr>
+        <div class="row1">
+
+        <div class="skin1">
+        <img class="imgSkin" class="TheEmpress" id="TheEmpress" src="images/ak47_TheEmpress.png" alt="ak47">
+        <p>800</p>
+        <button class="buySkinButton" data-index="0" data-price="800">Купить</button>
+        </div>
+
+        <div class="skin1">
+        <img class="imgSkin" class="Bloodsport" id="Bloodsport" src="images/ak47_Bloodsport.png" alt="ak47">
+        <p>1000</p>
+        <button class="buySkinButton" data-index="1" data-price="1000">Купить</button>
+        </div>
+
+        <div class="skin1">
+        <img class="imgSkin" class="CraneFlight" id="CraneFlight" src="images/ak47_CraneFlight.png" alt="ak47">
+        <p>400</p>
+        <button class="buySkinButton" data-index="2" data-price="400">Купить</button>
+        </div>
+        </div>
+
+        <hr>
+        <div class="row1">
+
+        <div class="skin1">
+        <img class="imgSkin" class="FireSerpent" id="FireSerpent" src="images/ak47_FireSerpent.png" alt="ak47">
+        <p>100</p>
+        <button class="buySkinButton" data-index="3" data-price="100">Купить</button>
+        </div>
+
+        <div class="skin1">
+        <img class="imgSkin" class="NeonRider" id="NeonRider" src="images/ak47_NeonRider.png" alt="ak47">
+        <p>500</p>
+        <button class="buySkinButton" data-index="4" data-price="500">Купить</button>
+        </div>
+        </div>
+        <button id="comeBackButton">Назад</button>
+
+    </div>
+    </div>
+
+    <div id="inventoryScreen">
+    <div id="inventoryMenu">
+        <h1>Инвентарь </h1>
+        
+        <hr>
+        <h2>Скины</h2>
+        <hr>
+
+        
+        <div class="row1">
+
+        <div class="skin1">
+        <img class="imgSkin" class="TheEmpress" id="TheEmpress" src="images/ak47_TheEmpress.png" alt="ak47">
+        <button class="skinButton" data-index="0">Экипировать</button>
+        </div>
+
+        <div class="skin1">
+        <img class="imgSkin" class="Bloodsport" id="Bloodsport" src="images/ak47_Bloodsport.png" alt="ak47">
+        <button class="skinButton" data-index="1">Экипировать</button>
+        </div>
+
+        <div class="skin1">
+        <img class="imgSkin" class="CraneFlight" id="CraneFlight" src="images/ak47_CraneFlight.png" alt="ak47">
+        <button class="skinButton" data-index="2">Экипировать</button>
+        </div>
+        </div>
+
+        <hr>
+        <div class="row1">
+
+        <div class="skin1">
+        <img class="imgSkin" class="FireSerpent" id="FireSerpent" src="images/ak47_FireSerpent.png" alt="ak47">
+        <button class="skinButton" data-index="3">Экипировать</button>
+        </div>
+
+        <div class="skin1">
+        <img class="imgSkin" class="NeonRider" id="NeonRider" src="images/ak47_NeonRider.png" alt="ak47">
+        <button class="skinButton" data-index="4">Экипировать</button>
+        </div>
+        </div>
+        <hr>
+
+        <button id="comeBackButton1">Назад</button>
+
+    </div>
+    </div>
+    
+    <div id="profileScreen">
+    
+    <div id="profileMenu">
+        <h1>Профиль</h1>
+        <div class="line"></div>
+        <div class="profileClass">
+        <div class="ava">
+        <p>Аватар: </p> <img id="avatar" src="images/poop.jpg" alt="photo">
+        <button id="changeAvatarButton">Изменить аватар</button>
+        <input type="file" id="avatarInput" accept="image/*" hidden>      
+        </div>
+
+        <div class="nickN">
+        <p>Никнейм: <p id="personName"></p></p>
+        <input id="changeName" type="text" spellcheck="false" placeholder="Введите новый никнейм">
+        <button id="changeNameButton">Изменить никнейм</button>
+        <button id="changeButton">Изменить</button> 
+        </div>
+        </div>
+
+
+        
+
+        <button id="comeBackButton2">Назад</button>
+    
+    </div>
+    </div>
+<header>
+    
+    <h1>Cyber Arena</h1>
+    <hr>
+    <div class="buttons">
+    <button id="themeButton">Сменить тему</button>
+    <button id="shopButton">Магазин</button>
+    <button id="inventoryButton">Инвентарь</button>
+    <button id="changeSkinButton">Поменять скин</button>
+    <button id="profileButton">Посмотреть профиль</button>
+    </div>
+    <hr>
+    <p id="balance">Баланс: 0</p> 
+</header>
+
+<main>
+    <hr>
+    <h2>Cyber Core</h2>
+    <hr>
+    <h2 id="showName"></h2>
+    <button id="clickButton">
+        
+        <img class="imgSkin" id="ak47" src="ak47.png" alt="image">
+    </button>
+
+    <div class="state">
+    <div class="strength">
+        <h2>Сила клика:</h2>
+        <p id="strengthNumber">1</p>
+    </div>
+    
+    <div class="level">
+        <h2>Уровень:</h2>
+        <h2 id="levelNumber">1</h2>
+    </div>
+    <div class="levelScore">
+    <div class="exp">
+        <h2>Опыт XP:</h2>
+        
+
+        <div class="expBar"> 
+        <div id="expProgress">
+        <p id="xpScore">0/100</p>
+        </div>
+    </div>
+    </div>
+    </div>
+    
+
+    
+    </div>
+    
+
+    <section id="upgrading">
+        <hr>
+        <h2>Улучшение</h2>
+        <hr>
+        <div>
+            <h3>Усиление ядра</h3>
+            <p id="money">+1 монета за клик</p>
+            <p id="price">Цена: 10 монет</p>
+            <button id="buttonBuy">Купить</button>
+        </div>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>

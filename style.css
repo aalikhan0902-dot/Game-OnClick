@@ -1,0 +1,549 @@
+:root {
+    
+    --background-color:
+        radial-gradient(
+            ellipse at top,
+            #5ef987 0%,
+            #2cca4e 45%,
+            #1e7f33 100%
+        );   
+    --text-color: rgb(247, 247, 250);
+    --box-shadow: 0 0 15px rgb(3, 240, 121);
+    --bg-color2: rgb(251, 249, 249);
+    --text-color2: rgb(8, 8, 8);
+    --text-shadow: 0 0 15px #0b3d01;
+    
+}
+
+.dark {
+    --background-color:
+        radial-gradient(
+            ellipse at top,
+            #163b20 0%,
+            #0b2b12 45%,
+            #080d09 100%
+        );
+    --text-color: white;
+    --box-shadow: 0 0 15px #05fc32;
+    --bg-color2: white;
+    --text-color2: black;
+    --text-shadow: 0 0 15px #32fc09;
+}
+
+
+
+
+
+
+body {
+    
+    background: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+    justify-content: center;
+    
+    text-shadow: var(--text-shadow);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body {
+    
+    color: white;
+    min-height: 100vh;
+}
+
+#startScreen,
+#profileScreen {
+    inset: 0;
+    position: fixed;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    
+    z-index: 999;
+    background: var(--background-color);
+    color: #fbfbfa;
+    min-height: 100vh;
+}
+
+
+.line,
+.line1 {
+    box-shadow: 0 0 15px rgb(2, 246, 88), inset 0 0 20px rgb(2, 248, 52);
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+}
+
+.nickN,
+.startN {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.ava {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+
+
+.profileClass {
+    justify-content: center;
+}
+
+#profileMenu {
+    
+    position: fixed;
+    
+    width: 800px;
+    height: 500px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    box-shadow: var(--box-shadow);
+    border-radius: 15px;
+}
+
+#profileMenu {
+    background: rgba(8, 13, 9, 0.15);
+    backdrop-filter: blur(50px);
+    border: 1px solid rgba(229, 248, 183, 0.15);
+    border-radius: 16px;
+}
+
+#profileMenu p,
+#startMenu p {
+    font-size: 30px;
+}
+
+#changeName {
+    display: none;
+}
+
+#changeButton {
+    display: none;
+}
+#shopScreen,
+#inventoryScreen {
+
+    inset: 0;
+    position: fixed;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    
+    
+    z-index: 999;
+
+    background: var(--background-color);
+    color: #e5f8b7;
+    min-height: 100vh;
+}
+
+#startMenu {
+    
+    position: fixed;
+    
+    width: 600px;
+    height: 550px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    box-shadow: var(--box-shadow);
+    border-radius: 15px;
+}
+
+#startMenu {
+    background: rgba(8, 13, 9, 0.15);
+    backdrop-filter: blur(50px);
+    border: 1px solid rgba(229, 248, 183, 0.15);
+    border-radius: 16px;
+}
+
+#shopMenu,
+#inventoryMenu {
+    
+    position: fixed;
+    
+    width: 500px;
+    height: 1000px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    box-shadow: var(--box-shadow);
+    border-radius: 15px;
+    background: rgba(7, 26, 14, 0.858);
+    backdrop-filter: blur(50px);
+    border: 1px solid rgba(229, 248, 183, 0.15);
+    border-radius: 16px;
+    
+}
+
+#shopMenu,
+#inventoryMenu {
+    width: 90%;
+    height: 90%;
+}
+
+ hr {
+    width: 100%;
+}
+
+
+
+input {
+    text-align: center;
+    width: 250px;
+    height: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    border: none;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+#startMenu button {
+    margin-top: 200px;
+    width: 200px;
+    height: 80px;
+    background-color: #66e20d;
+    border: none;
+    text-decoration: none;
+    border-radius: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    color: #fff;
+    
+    
+    transition: 0.4s;
+    background-color: rgb(231, 231, 5);
+    box-shadow: 0 0 15px rgb(241, 241, 10);
+    border: none;
+    border-radius: 30px;
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+
+
+
+
+
+.level, 
+.exp {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.levelScore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.expBar {
+    position: relative;
+    width: 300px;
+    height: 25px;
+    background-color: var(--bg-color2);
+    border-radius: 15px;
+    overflow: hidden;
+    
+}
+
+#expProgress {
+    width: 0%;
+    height: 100%;
+    background-color: limegreen;
+    transition: 0.5s;
+}
+#xpScore {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    color: var(--text-color2);
+}
+#balance,
+#balanceShop {
+    font-size: 40px;
+    color: rgb(20, 236, 20);
+    text-shadow: var(--text-shadow);
+}
+
+h1 {
+    font-size: 60px;
+    
+}
+
+p {
+    font-size: 20px;
+}
+
+h2 {
+    font-size: 30px;
+    text-align: center;
+    justify-content: center;
+    color: var(--text-color);
+    
+    text-shadow: var(--text-shadow);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.imgSkin{
+    width: 320px;
+    height: 200px;
+    background: transparent;
+    filter: drop-shadow(0 0 5px rgb(11, 85, 224));
+    transition: transform 0.3s;
+}
+
+#TheEmpress,
+.TheEmpress {
+    filter: drop-shadow(0 0 5px rgb(172, 101, 2));
+}
+
+#Bloodsport,
+.Bloodsport {
+    filter: drop-shadow(0 0 5px rgb(249, 3, 3));
+}
+
+#CraneFlight,
+.CraneFlight {
+    filter: drop-shadow(0 0 5px rgb(243, 241, 241));
+}
+
+#FireSerpent,
+.FireSerpent {
+    filter: drop-shadow(0 0 5px rgb(4, 147, 45));
+}
+
+#NeonRider,
+.NeonRider {
+    filter: drop-shadow(0 0 5px rgb(233, 6, 158));
+}
+
+.imgSkin:hover {
+    
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+
+.imgSkin:active {
+
+    transform: scale(1.2);
+}
+
+#clickButton {
+    box-shadow: var(--box-shadow);
+    background: rgba(8, 13, 9, 0.15);
+    backdrop-filter: blur(50px);
+    border: 1px solid rgba(229, 248, 183, 0.15);
+    border-radius: 16px;
+    width: 350px;
+    height: 350px;
+    border-radius: 180px;
+    border: none;
+    
+}
+
+#buttonBuy,
+#themeButton,
+#shopButton,
+#inventoryButton,
+.skinButton,
+#comeBackButton2,
+#comeBackButton1,
+#comeBackButton,
+#changeSkinButton,
+.buySkinButton,
+#profileButton,
+#changeNameButton,
+#changeButton,
+#changeAvatarButton {
+    color: #fff;
+    transition: 0.4s;
+    background-color: rgb(231, 231, 5);
+    box-shadow: 0 0 15px rgb(241, 241, 10);
+    border: none;
+    width: 150px;
+    height: 40px;
+    border-radius: 30px;
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.skinButton {
+    width: 250px;
+    background-color: rgb(6, 255, 22);
+    box-shadow: var(--box-shadow);
+}
+
+
+#inventoryButton {
+    width: 250px;
+    background-color: brown;
+    box-shadow: 0 0 15px brown;
+}
+#shopButton {
+    width: 250px;
+    background-color: rgb(28, 63, 219);
+    box-shadow: 0 0 15px rgb(28, 63, 219);
+}
+
+#profileButton {
+    width: 320px;
+    background-color: rgb(178, 178, 180);
+    box-shadow: 0 0 15px rgb(178, 179, 178);
+}
+
+#changeNameButton,
+#changeButton,
+#changeAvatarButton {
+    font-size: 30px;
+    width: 300px;
+    background-color: rgb(5, 116, 45);
+    box-shadow: 0 0 15px rgb(3, 112, 61);
+}
+
+#themeButton,
+#comeBackButton2,
+#comeBackButton1,
+#comeBackButton,
+#changeSkinButton,
+#startMenu button {
+    width: 250px;
+    background-color: var(--bg-color2);
+    box-shadow: var(--box-shadow);
+    color: var(--text-color2)
+}
+
+#buttonBuy:hover,
+#themeButton:hover,
+#shopButton:hover,
+#inventoryButton:hover,
+.buySkinButton:hover,
+#comeBackButton2:hover,
+#comeBackButton1:hover,
+#comeBackButton:hover,
+#changeSkinButton:hover,
+#startMenu button:hover,
+#profileButton:hover,
+#changeNameButton:hover,
+#changeButton:hover,
+#changeAvatarButton:hover {
+    transition: 0.4s;
+    transform: scale(1.1);
+    background-color: rgb(59, 233, 59);
+    box-shadow: var(--box-shadow);
+}
+
+#inventoryButton:hover {
+    background-color: rgb(184, 60, 60);
+    box-shadow: 0 0 15px brown;
+}
+
+#shopButton:hover {
+    background-color: rgb(10, 159, 251);
+    box-shadow: 0 0 15px rgb(60, 137, 184);
+}
+
+#profileButton:hover {
+    background-color: rgb(223, 226, 226);
+    box-shadow: 0 0 15px rgb(188, 189, 189);
+}
+
+#themeButton:hover,
+#comeBackButton2:hover,
+#comeBackButton1:hover,
+#comeBackButton:hover,
+#changeSkinButton:hover,
+#startMenu button:hover {
+    background-color: rgb(8, 8, 149);
+    color: white;
+    
+}
+
+#buttonBuy:active,
+#themeButton:active,
+#shopButton:active,
+#inventoryButton:active,
+.skinButton:active,
+#comeBackButton2:active,
+#comeBackButton1:active,
+#comeBackButton:active,
+#changeSkinButton:active,
+.buySkinButton:active,
+#startMenu button:active,
+#profileButton:active,
+#changeNameButton:active,
+#changeButton:active,
+#changeAvatarButton:active {
+    color: #333;
+    background-color: rgb(242, 244, 242);
+}
+
+.skinButton.active {
+    width: 250px;
+    background-color: rgb(144, 96, 64);
+    box-shadow: 0 0 15px rgb(144, 96, 64);
+}
+
+.skinButton:disabled {
+    background-color: #01331a;
+}
+
+.buySkinButton:disabled {
+    background-color: #5b5b5b;
+    box-shadow: 0 0 15px gray;
+}
+
+
+.row1 {
+    gap: 140px;
+    display: flex;
+    align-items: center;
+}
+
+.skin1 {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#avatar {
+    width: 100px;
+    height: 100px;
+    object-fit: fill;
+    border-radius: 50%;
+}
+
+.buttons {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 13px;
+    flex-wrap: wrap;
+    
+}
