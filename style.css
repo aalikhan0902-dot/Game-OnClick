@@ -242,13 +242,21 @@ input {
 }
 
 
-
+.state1 {
+    
+   
+    height: 100%;
+    width: 100%;
+    background-color: #02390c4b;
+}
 
 
 
 
 .level, 
-.exp {
+.exp,
+.strength,
+.rebith {
     justify-content: center;
     display: flex;
     align-items: center;
@@ -380,7 +388,8 @@ h2 {
 #profileButton,
 #changeNameButton,
 #changeButton,
-#changeAvatarButton {
+#changeAvatarButton,
+#rebithButton {
     color: #fff;
     transition: 0.4s;
     background-color: rgb(231, 231, 5);
@@ -417,6 +426,12 @@ h2 {
     box-shadow: 0 0 15px rgb(178, 179, 178);
 }
 
+#rebithButton {
+    width: 250px;
+    background-color: rgb(238, 11, 3);
+    box-shadow: 0 0 15px rgb(232, 27, 4);
+}
+
 #changeNameButton,
 #changeButton,
 #changeAvatarButton {
@@ -451,7 +466,8 @@ h2 {
 #profileButton:hover,
 #changeNameButton:hover,
 #changeButton:hover,
-#changeAvatarButton:hover {
+#changeAvatarButton:hover,
+#rebithButton:hover {
     transition: 0.4s;
     transform: scale(1.1);
     background-color: rgb(59, 233, 59);
@@ -471,6 +487,11 @@ h2 {
 #profileButton:hover {
     background-color: rgb(223, 226, 226);
     box-shadow: 0 0 15px rgb(188, 189, 189);
+}
+
+#rebithButton:hover {
+    background-color: rgb(245, 64, 64);
+    box-shadow: 0 0 15px rgb(240, 67, 41);
 }
 
 #themeButton:hover,
@@ -498,7 +519,8 @@ h2 {
 #profileButton:active,
 #changeNameButton:active,
 #changeButton:active,
-#changeAvatarButton:active {
+#changeAvatarButton:active,
+#rebithButton:active {
     color: #333;
     background-color: rgb(242, 244, 242);
 }
@@ -514,6 +536,11 @@ h2 {
 }
 
 .buySkinButton:disabled {
+    background-color: #5b5b5b;
+    box-shadow: 0 0 15px gray;
+}
+
+#rebithButton:disabled {
     background-color: #5b5b5b;
     box-shadow: 0 0 15px gray;
 }
@@ -547,3 +574,174 @@ h2 {
     flex-wrap: wrap;
     
 }
+
+/* Мобильная версия Cyber Arena */
+@media (max-width: 600px) {
+
+    /* Магазин и инвентарь */
+    #shopMenu,
+    #inventoryMenu {
+        position: fixed;
+        top: 5%;
+        left: 5%;
+        width: 90%;
+        height: 90%;
+        box-sizing: border-box;
+        padding: 12px;
+        gap: 12px;
+    }
+
+    /* Карточки идут столбиком */
+    .row1 {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .skin1 {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Изображения не выходят за границы */
+    .imgSkin {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        max-height: 200px;
+        object-fit: contain;
+    }
+
+    /* Кнопки помещаются на экран */
+    #buttonBuy,
+    #themeButton,
+    #shopButton,
+    #inventoryButton,
+    .skinButton,
+    #comeBackButton2,
+    #comeBackButton1,
+    #comeBackButton,
+    #changeSkinButton,
+    .buySkinButton,
+    #profileButton,
+    #changeNameButton,
+    #changeButton,
+    #changeAvatarButton,
+    #rebithButton {
+        max-width: 100%;
+        font-size: 18px;
+        box-sizing: border-box;
+    }
+
+    /* Убираем увеличение кнопок при касании */
+    #buttonBuy:hover,
+    #themeButton:hover,
+    #shopButton:hover,
+    #inventoryButton:hover,
+    .buySkinButton:hover,
+    #comeBackButton2:hover,
+    #comeBackButton1:hover,
+    #comeBackButton:hover,
+    #changeSkinButton:hover,
+    #profileButton:hover,
+    #changeNameButton:hover,
+    #changeButton:hover,
+    #changeAvatarButton:hover,
+    #rebithButton:hover {
+        transform: none;
+    }
+
+    /* Не даём странице прокручиваться вбок */
+    body {
+        overflow-x: hidden;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    #balance,
+    #balanceShop {
+        font-size: 28px;
+    }
+}
+
+/* Адаптация стартового экрана и профиля */
+@media (max-width: 600px) {
+
+    #startScreen,
+    #profileScreen {
+        padding: 12px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #startMenu,
+    #profileMenu {
+        position: relative;
+        width: 100%;
+        max-width: 420px;
+        height: auto;
+        max-height: calc(100vh - 24px);
+        max-height: calc(100dvh - 24px);
+        min-height: 0;
+        box-sizing: border-box;
+        padding: 20px 14px;
+        overflow-y: auto;
+        gap: 12px;
+    }
+
+    #startMenu p,
+    #profileMenu p {
+        font-size: 22px;
+        overflow-wrap: anywhere;
+    }
+
+    #startMenu h1,
+    #profileMenu h1 {
+        font-size: 32px;
+        overflow-wrap: anywhere;
+    }
+
+    #startMenu button {
+        margin-top: 20px;
+        max-width: 100%;
+        height: auto;
+        min-height: 48px;
+        padding: 10px;
+        font-size: 20px;
+        box-sizing: border-box;
+    }
+
+    #startMenu input,
+    #profileMenu input {
+        width: 100%;
+        max-width: 280px;
+        box-sizing: border-box;
+    }
+
+    #profileMenu img {
+        max-width: 100%;
+    }
+
+    .nickN,
+    .startN,
+    .ava {
+        flex-wrap: wrap;
+        gap: 12px;
+        max-width: 100%;
+    }
+
+    #profileMenu button {
+        max-width: 100%;
+        font-size: 18px;
+    }
+}
+
