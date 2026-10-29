@@ -4,6 +4,7 @@ let clickButton = document.getElementById("clickButton");
 let strengthNumber = document.getElementById("strengthNumber");
 let strengthNumber1 = document.getElementById("strengthNumber1");
 let xpScore = document.getElementById("xpScore");
+
 let levelNumber = document.getElementById("levelNumber");
 let levelNumber1 = document.getElementById("levelNumber1");
 let expProgress = document.getElementById("expProgress");
@@ -19,6 +20,8 @@ let shopButton = document.getElementById("shopButton");
 let comeBackButton = document.getElementById("comeBackButton");
 let comeBackButton1 = document.getElementById("comeBackButton1");
 let comeBackButton2 = document.getElementById("comeBackButton2");
+let comeBackButton3 = document.getElementById("comeBackButton3");
+
 let shopScreen = document.getElementById("shopScreen");
 let changeSkinButton = document.getElementById("changeSkinButton");
 let ak47 = document.getElementById("ak47");
@@ -38,18 +41,40 @@ let avatar = document.getElementById("avatar");
 let rebithButton = document.getElementById("rebithButton");
 let rebithNumber = document.getElementById("rebithNumber");
 let rebithNumber1 = document.getElementById("rebithNumber1");
-
+let questsScreen = document.getElementById("questsScreen");
+let questsButton = document.getElementById("questsButton");
 let changeAvatarButton = document.getElementById("changeAvatarButton");
-
 let avatarInput = document.getElementById("avatarInput");
+
+//quests
+let questScore = document.getElementById("questScore");
+let questProgress = document.getElementById("questProgress");
+let claimRewardButton = document.getElementById("claimRewardButton");
+let questScore1 = document.getElementById("questScore1");
+let questProgress1 = document.getElementById("questProgress1");
+let claimRewardButton1 = document.getElementById("claimRewardButton1");
+let questScore2 = document.getElementById("questScore2");
+let questProgress2 = document.getElementById("questProgress2");
+let claimRewardButton2 = document.getElementById("claimRewardButton2");
 
 let purchasedSkins = JSON.parse(localStorage.getItem("purchasedSkins")) || [];
 let upgradingScore = 10;
 let xpNumber = 0;
+
 let balanceNumber = 0;
 let upgrading = 1;
 let level = 1;
 let rebith = 0;
+
+//quests
+let today = gettoday();
+let savedDay = Number(localStorage.getItem("today"));
+let click = 0;
+let questNumber = 1;
+let upgradingForQ = 1;
+let xpQuestNum = 0;
+let boughtUpg = 0;
+let boughtForUpgQ = 1;
 
 let buffX = 1;
 let levelRequirments = [10, 15, 20, 25];
@@ -65,29 +90,6 @@ let giftForLevel = [
   12000, 15000, 20000, 25000, 32500, 40000, 50000, 60000, 70000, 85000, 100000,
 ];
 
-let dailyQuestPool = [
-  {
-    id: "click_100",
-    title: "Сделай 100 кликов",
-    type: "click",
-    goal: 100,
-    reward: 500,
-  },
-  {
-    id: "click_500",
-    title: "Сделай 500 кликов",
-    type: "click",
-    goal: 500,
-    reward: 1500,
-  },
-  {
-    id: "earn_xp_2000",
-    title: "Получи 2000 XP",
-    type: "click",
-    goal: 2000,
-    reward: 3000,
-  },
-];
 let name = "";
 let skins = JSON.parse(localStorage.getItem("skins")) || ["ak47.png"];
 
@@ -118,6 +120,78 @@ function loadGame() {
   upgradingScore = Number(localStorage.getItem("upgradingScore")) || 10;
   name = localStorage.getItem("name") || "";
   rebith = Number(localStorage.getItem("rebith")) || 0;
+  click = Number(localStorage.getItem("click")) || 0;
+  xpQuestNum = Number(localStorage.getItem("xpQuestNum")) || 0;
+  boughtUpg = Number(localStorage.getItem("boughtUpg")) || 0;
+}
+function checkQuestDate() {
+  localStorage.removeItem("claimRewardButton");
+  localStorage.removeItem("claimRewardButton1");
+  localStorage.removeItem("claimRewardButton2");
+
+  click = 0;
+  xpQuestNum = 0;
+  boughtUpg = 0;
+
+  localStorage.setItem("click", click);
+  localStorage.setItem("xpQuestNum", xpQuestNum);
+  localStorage.setItem("boughtUpg", boughtUpg);
+}
+function gettoday() {
+  return new Date().toLocaleDateString();
+}
+function newQuest() {
+  if (savedDay !== gettoday()) {
+    console.log("hello");
+
+    checkQuestDate();
+  }
+
+  questsScreen.style.display = "flex";
+
+  // остальной твой код
+
+  questsScreen.style.display = "flex";
+  if (click >= 100) {
+    questScore.textContent = "100 / 100";
+    questProgress.style.width = (100 / 100) * 100 + "%";
+    questNumber = 0;
+  } else {
+    questScore.textContent = click + " / 100";
+    questProgress.style.width = (click / 100) * 100 + "%";
+  }
+  if (localStorage.getItem("claimRewardButton") === "true") {
+    claimRewardButton.disabled = true;
+    claimRewardButton.textContent = "Выполнено";
+    claimRewardButton.classList.add("active");
+  }
+
+  if (xpQuestNum >= 1000) {
+    questScore1.textContent = "1000 / 1000";
+    questProgress1.style.width = (1000 / 1000) * 100 + "%";
+    upgradingForQ = 0;
+  } else {
+    questScore1.textContent = xpQuestNum + " / 1000";
+    questProgress1.style.width = (xpQuestNum / 1000) * 100 + "%";
+  }
+  if (localStorage.getItem("claimRewardButton1") === "true") {
+    claimRewardButton1.disabled = true;
+    claimRewardButton1.textContent = "Выполнено";
+    claimRewardButton1.classList.add("active");
+  }
+
+  if (boughtUpg >= 5) {
+    questScore2.textContent = "5 / 5";
+    questProgress2.style.width = (5 / 5) * 100 + "%";
+  } else {
+    questScore2.textContent = boughtUpg + " / 5";
+    questProgress2.style.width = (boughtUpg / 5) * 100 + "%";
+  }
+  if (localStorage.getItem("claimRewardButton2") === "true") {
+    claimRewardButton2.disabled = true;
+    claimRewardButton2.textContent = "Выполнено";
+    claimRewardButton2.classList.add("active");
+  }
 }
 
 //кнопка новой игры
@@ -139,7 +213,53 @@ profileButton.addEventListener("click", function () {
 
   profileScreen.style.display = "flex";
 });
+questsButton.addEventListener("click", function () {
+  newQuest();
+});
+//quest
+claimRewardButton.addEventListener("click", function () {
+  if (click >= 100) {
+    balanceNumber += 500;
+    balance.textContent = "Баланс: " + balanceNumber;
+    alert("Ежедневное задание выполнено. Твоя награда: 500 монет");
+    claimRewardButton.disabled = true;
+    claimRewardButton.textContent = "Выполнено";
+    claimRewardButton.classList.toggle("active");
 
+    localStorage.setItem("claimRewardButton", "true");
+  } else {
+    alert("Задание еще не выполнено");
+    return;
+  }
+});
+claimRewardButton1.addEventListener("click", function () {
+  if (xpQuestNum >= 1000) {
+    balanceNumber += 1000;
+    balance.textContent = "Баланс: " + balanceNumber;
+    alert("Ежедневное задание выполнено. Твоя награда: 1000 монет");
+    claimRewardButton1.disabled = true;
+    claimRewardButton1.textContent = "Выполнено";
+    claimRewardButton1.classList.toggle("active");
+    localStorage.setItem("claimRewardButton1", "true");
+  } else {
+    alert("Задание еще не выполнено");
+    return;
+  }
+});
+claimRewardButton2.addEventListener("click", function () {
+  if (boughtUpg >= 5) {
+    balanceNumber += 500;
+    balance.textContent = "Баланс: " + balanceNumber;
+    alert("Ежедневное задание выполнено. Твоя награда: 500 монет");
+    claimRewardButton2.disabled = true;
+    claimRewardButton2.textContent = "Выполнено";
+    claimRewardButton2.classList.toggle("active");
+    localStorage.setItem("claimRewardButton2", "true");
+  } else {
+    alert("Задание еще не выполнено");
+    return;
+  }
+});
 changeNameButton.addEventListener("click", function () {
   if ((changeName.style.display = "none")) {
     changeName.style.display = "block";
@@ -300,6 +420,11 @@ comeBackButton1.addEventListener("click", function () {
 comeBackButton2.addEventListener("click", function () {
   profileScreen.style.display = "none";
 });
+comeBackButton3.addEventListener("click", function () {
+  questsScreen.style.display = "none";
+  savedDay = gettoday();
+  localStorage.setItem("savedDay", gettoday);
+});
 //кнопка для смены скина
 changeSkinButton.addEventListener("click", function () {
   currentSkin += 1;
@@ -393,6 +518,9 @@ clickButton.addEventListener("click", function () {
     updateLevel();
   }
 
+  xpQuestNum = upgradingForQ + xpQuestNum;
+  click = click + questNumber;
+
   saveGame();
 });
 
@@ -402,6 +530,10 @@ buttonBuy.addEventListener("click", function () {
     balanceNumber -= upgradingScore;
     balance.textContent = "Баланс: " + balanceNumber;
     upgrading += 1;
+    //quest
+
+    boughtUpg += boughtForUpgQ;
+    upgradingForQ += 1;
     strengthNumber.textContent = upgrading;
 
     upgradingScore += 20;
@@ -423,6 +555,9 @@ function saveGame() {
   localStorage.setItem("upgradingScore", upgradingScore);
   localStorage.setItem("name", name);
   localStorage.setItem("rebith", rebith);
+  localStorage.setItem("click", click);
+  localStorage.setItem("xpQuestNum", xpQuestNum);
+  localStorage.setItem("boughtUpg", boughtUpg);
 }
 
 //загрузка игры
@@ -446,6 +581,12 @@ rebithNumber.textContent = rebith;
 rebithNumber1.textContent = rebith;
 rebithButton.disabled = true;
 
+//quest
+savedDay = gettoday();
+xpQuestNum = upgradingForQ + xpQuestNum;
+click = click + questNumber;
+
+questsScreen.style.display = "none";
 profileScreen.style.display = "none";
 if (name) {
   startScreen.style.display = "none";

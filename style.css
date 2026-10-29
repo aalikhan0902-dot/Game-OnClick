@@ -53,7 +53,8 @@ body {
 }
 
 #startScreen,
-#profileScreen {
+#profileScreen,
+#questsScreen {
     inset: 0;
     position: fixed;
     flex-wrap: wrap;
@@ -99,7 +100,8 @@ body {
     justify-content: center;
 }
 
-#profileMenu {
+#profileMenu,
+#questsMenu {
     
     position: fixed;
     
@@ -114,11 +116,16 @@ body {
     border-radius: 15px;
 }
 
-#profileMenu {
+#profileMenu,
+#questsMenu  {
     background: rgba(8, 13, 9, 0.15);
     backdrop-filter: blur(50px);
     border: 1px solid rgba(229, 248, 183, 0.15);
     border-radius: 16px;
+}
+
+#questsMenu {
+    height: 800px;
 }
 
 #profileMenu p,
@@ -285,6 +292,7 @@ input {
     transition: 0.5s;
 }
 #xpScore {
+    pointer-events: none;
     position: absolute;
     inset: 0;
     display: flex;
@@ -380,6 +388,7 @@ h2 {
 #shopButton,
 #inventoryButton,
 .skinButton,
+#comeBackButton3,
 #comeBackButton2,
 #comeBackButton1,
 #comeBackButton,
@@ -389,7 +398,11 @@ h2 {
 #changeNameButton,
 #changeButton,
 #changeAvatarButton,
-#rebithButton {
+#rebithButton,
+#questsButton,
+#claimRewardButton,
+#claimRewardButton1,
+#claimRewardButton2 {
     color: #fff;
     transition: 0.4s;
     background-color: rgb(231, 231, 5);
@@ -407,7 +420,11 @@ h2 {
     background-color: rgb(6, 255, 22);
     box-shadow: var(--box-shadow);
 }
-
+#questsButton {
+    width: 250px;
+    background-color: rgb(8, 170, 19);
+    box-shadow: 0 0 15px green;
+}
 
 #inventoryButton {
     width: 250px;
@@ -442,6 +459,7 @@ h2 {
 }
 
 #themeButton,
+#comeBackButton3,
 #comeBackButton2,
 #comeBackButton1,
 #comeBackButton,
@@ -453,11 +471,21 @@ h2 {
     color: var(--text-color2)
 }
 
+#claimRewardButton,
+#claimRewardButton1,
+#claimRewardButton2 {
+    font-size: 15px;
+    height: 20px;
+    width: 300px;
+    background-color: rgb(8, 170, 19);
+    box-shadow: 0 0 15px green;
+}
 #buttonBuy:hover,
 #themeButton:hover,
 #shopButton:hover,
 #inventoryButton:hover,
 .buySkinButton:hover,
+#comeBackButton3:hover,
 #comeBackButton2:hover,
 #comeBackButton1:hover,
 #comeBackButton:hover,
@@ -467,7 +495,11 @@ h2 {
 #changeNameButton:hover,
 #changeButton:hover,
 #changeAvatarButton:hover,
-#rebithButton:hover {
+#rebithButton:hover,
+#questsButton:hover,
+#claimRewardButton:hover,
+#claimRewardButton1:hover,
+#claimRewardButton2:hover {
     transition: 0.4s;
     transform: scale(1.1);
     background-color: rgb(59, 233, 59);
@@ -495,6 +527,7 @@ h2 {
 }
 
 #themeButton:hover,
+#comeBackButton3:hover,
 #comeBackButton2:hover,
 #comeBackButton1:hover,
 #comeBackButton:hover,
@@ -510,6 +543,7 @@ h2 {
 #shopButton:active,
 #inventoryButton:active,
 .skinButton:active,
+#comeBackButton3:active
 #comeBackButton2:active,
 #comeBackButton1:active,
 #comeBackButton:active,
@@ -520,7 +554,8 @@ h2 {
 #changeNameButton:active,
 #changeButton:active,
 #changeAvatarButton:active,
-#rebithButton:active {
+#rebithButton:active,
+#questsButton:active {
     color: #333;
     background-color: rgb(242, 244, 242);
 }
@@ -574,6 +609,78 @@ h2 {
     flex-wrap: wrap;
     
 }
+.questCards {
+    width: 600px;
+    
+}
+#questCard,
+#questCard1,
+#questCard2 {
+    
+    border-radius: 20px;
+    width: 100%;
+    height: 180px;
+    background-color: #01331ab0;
+}
+
+.questExp,
+.questExp1,
+.questExp2 {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.questScore,
+.questScore1,
+.questScore2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.questBar,
+.questBar1,
+.questBar2 {
+    position: relative;
+    width: 300px;
+    height: 15px;
+    background-color: var(--bg-color2);
+    border-radius: 15px;
+    overflow: hidden;
+    
+}
+#questProgress,
+#questProgress1,
+#questProgress2 {
+    width: 0%;
+    height: 100%;
+    background-color: limegreen;
+    transition: 0.5s;
+}
+#questScore,
+#questScore1,
+#questScore2 {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    color: var(--text-color2);
+    font-size: 15px;
+}
+#questMenu h2 {
+    font-size: 0;
+}
+
+
+
+
+
+
+
+
 
 /* Мобильная версия Cyber Arena */
 @media (max-width: 600px) {
@@ -628,7 +735,8 @@ h2 {
     #changeNameButton,
     #changeButton,
     #changeAvatarButton,
-    #rebithButton {
+    #rebithButton,
+    #questsButton {
         max-width: 100%;
         font-size: 18px;
         box-sizing: border-box;
@@ -648,7 +756,8 @@ h2 {
     #changeNameButton:hover,
     #changeButton:hover,
     #changeAvatarButton:hover,
-    #rebithButton:hover {
+    #rebithButton:hover,
+    #questsButton:hover {
         transform: none;
     }
 
@@ -743,5 +852,69 @@ h2 {
         max-width: 100%;
         font-size: 18px;
     }
+.questCards {
+    max-width: 600px;
+    
+}
+#questCard,
+#questCard1,
+#questCard2 {
+    margin-left: 90px;
+    border-radius: 20px;
+    width: 70%;
+    height: 180px;
+    background-color: #01331ab0;
+}
+
+.questExp,
+.questExp1,
+.questExp2 {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.questScore,
+.questScore1,
+.questScore2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.questBar,
+.questBar1,
+.questBar2 {
+    position: relative;
+    width: 300px;
+    height: 15px;
+    background-color: var(--bg-color2);
+    border-radius: 15px;
+    overflow: hidden;
+    
+}
+#questProgress,
+#questProgress1,
+#questProgress2 {
+    width: 0%;
+    height: 100%;
+    background-color: limegreen;
+    transition: 0.5s;
+}
+#questScore,
+#questScore1,
+#questScore2 {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    color: var(--text-color2);
+    font-size: 15px;
+}
+#questMenu h2 {
+    font-size: 0;
+}
 }
 
